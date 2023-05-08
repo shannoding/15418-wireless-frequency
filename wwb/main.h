@@ -27,13 +27,13 @@ const int FREQ_SPACING = 25;
 const int FREQ_MAX = 663000;
 const int FREQ_MIN = 470000;
 
-// all frequency units are in 0.xxx kHz
+// all frequency units are in 0.xxx kHz which are discrete multiples of 0.025kHz
 struct Mic {
-    int frequency;
-    int channel_spacing;
-    int intermod_spacing;
-    int band_low;
-    int band_high;
+    int frequency; // the channel frequency it's assigned
+    int band_low; // the lowest possible frequency allowed for the channel
+    int band_high; // the highest possible frequency allowed for the channel
+    int channel_spacing; // how far away the channel frequency should be from other channels
+    int intermod_spacing[]; // how far away the channel frequency should be from IM products
 };
 
 typedef struct Mic Mic;

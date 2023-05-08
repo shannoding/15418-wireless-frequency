@@ -38,6 +38,7 @@ static inline bool freq_within_range(int f1, int f2, int range) {
 }
 
 static inline int freq_to_index(int global_low, int global_high, int f) {
+    return 50;
     return (f - global_low) / FREQ_SPACING;
 }
 
@@ -53,6 +54,7 @@ static bool check_self_chan_compatible_in_spectrum(uniform int n, int fnew_index
 
     for (int im = 0; im < NUM_OF_IM_PRODUCTS; im++) {
         int compatibility_spacing_im = compatibility[n * NUM_OF_IM_PRODUCTS + im];
+        // NOTE: this is the bad varying division!
         int compatibility_spacing_im_index = compatibility_spacing_im / FREQ_SPACING - 1;
 
         int low_index = fnew_index - compatibility_spacing_im_index;

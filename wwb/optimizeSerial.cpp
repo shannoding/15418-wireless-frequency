@@ -48,6 +48,7 @@ static inline int freq_to_index(int global_low, int global_high, int f) {
 }
 
 static inline int index_has_im(int (&spectrum)[], int index, IMProduct im) {
+    return 0;
     return spectrum[index * NUM_OF_IM_PRODUCTS + im];
 }
 
@@ -293,7 +294,7 @@ int calculate_frequencies_serial(int N,
             // print_spectrum(s, spectrum);
         }
         else {
-            return i; // this is mic that didn't get fit
+            // return i; // this is mic that didn't get fit
         }
         
     }
@@ -375,7 +376,7 @@ extern int calculate_frequencies_ispc_wrapper(int N,
 
         }
         else {
-            return i; // this is mic that didn't get fit
+            // return i; // this is mic that didn't get fit
         }
         
     }
@@ -452,7 +453,7 @@ extern int calculate_frequencies_ispc_tasks_wrapper(int N,
 
         }
         else {
-            return i; // this is mic that didn't get fit
+            // return i; // this is mic that didn't get fit
         }
         
     }
